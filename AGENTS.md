@@ -36,15 +36,22 @@ Both layout roots own `font_weight`, `font_weight_bold`, `terminal_line_height`,
 so change them deliberately, in both layouts, and keep the README table in step. Leave `font`
 unset.
 
-## The claude-chrome mod
+## The cloned mods
 
 `mods/claude-chrome/` is a clone of Herdr's `workspace-chrome` (0.1.18, see `cloned_from` in its
 `mod.json`) plus the `new_chat` row and, in the brand row, the window buttons from the shipped
 `tabs` mod (shown while `tabs` is hidden; icons from `mods/tabs/` and `mods/pane/`). Only the
 files it uses are kept. Herdr never updates a clone: compare it with the shipped
 `workspace-chrome` and `tabs` after a Herdr upgrade. Run
-`herdr-app check ~/.config/herdr-app/mods/claude-chrome` after every change. Herdr writes
-`jsconfig.json` and `gpui-kit.d.ts` into the installed folder; don't commit them.
+`herdr-app check ~/.config/herdr-app/mods/claude-chrome` after every change.
+
+`mods/claude-tabs/` and `mods/claude-status/` are clones of the shipped `tabs` and
+`workspace-status` (0.1.18) with only the bar's `border_b`/`border_t` separator removed (and
+`claude-tabs` pointing its window icons at its own folder, as `mod.clone` rewrites them). After
+a Herdr upgrade, diff each `main.js` against the shipped one and carry the changes over.
+
+Run `herdr-app check` on each clone after every change. Herdr writes `jsconfig.json` and
+`gpui-kit.d.ts` into installed mod folders; don't commit them.
 
 With `"titlebar": "system"` Herdr 0.1.18 on GNOME Wayland still reports `window().buttons: true`
 (no system window buttons), so `claude-desktop` keeps `"titlebar": "none"` and draws them itself.

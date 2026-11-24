@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # Install (or remove) the Claude desktop look into the Herdr app's home.
 #
-#   ./install.sh              copy themes, layouts and the sidebar mod
+#   ./install.sh              copy themes, layouts and mods
 #   ./install.sh --switch     copy, then switch the open window to the claude-code layout
-#   ./install.sh --uninstall  remove the copied files and the mod folder
+#   ./install.sh --uninstall  remove the copied files and the mod folders
 #
 # HERDR_APP_HOME picks another home, as it does for herdr-app.
 set -euo pipefail
@@ -12,10 +12,12 @@ src="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 home="${HERDR_APP_HOME:-$HOME/.config/herdr-app}"
 cd "$src"
 
-# The mod goes first so the layouts that use it never load without it.
-mods=(mods/claude-chrome)
+# The mods go first so the layouts that use them never load without them.
+mods=(mods/claude-chrome mods/claude-tabs mods/claude-status)
 files=(
   mods/claude-chrome/*
+  mods/claude-tabs/*
+  mods/claude-status/*
   themes/claude-desktop-dark.json
   themes/claude-desktop-light.json
   # Old theme names, kept one more release for settings.json files that name them.
