@@ -1,8 +1,8 @@
 # herdr-claude-theme
 
 A Herdr desktop app look modeled on the Claude desktop app (claude.ai's chat UI, Code section
-included). The repo mirrors the Herdr app home (`~/.config/herdr-app`): `themes/`, `layouts/`.
-`install.sh` copies them there. Sibling repo for oh-my-pi: `~/Git/omp-claude-theme`.
+included). The repo mirrors the Herdr app home (`~/.config/herdr-app`): `themes/`, `layouts/`,
+`mods/`. `install.sh` copies them there. Sibling repo for oh-my-pi: `~/Git/omp-claude-theme`.
 
 ## Herdr's own manual
 
@@ -22,7 +22,8 @@ shipped layouts/mods in the Herdr home.
   (`#rrggbbaa`) works in `colors`.
 - Light vs dark is inferred from the palette; Settings lists each theme under one of them.
 - A theme file named exactly like a layout becomes that layout's private theme. Keep theme names
-  (`claude-desktop-dark`, `claude-desktop-light`) distinct from layout names (`claude-code`).
+  (`claude-desktop-dark`, `claude-desktop-light`) distinct from layout names (`claude-code`,
+  `claude-desktop`): a theme file called `claude-desktop.json` would become the layout's own.
 - `themes/claude-code-*.json` are the old theme names, kept as exact copies of
   `claude-desktop-*` for one release so `settings.json` files naming them keep working. Change
   both pairs together; delete the old pair (and its `install.sh` lines) in the next release.
@@ -30,9 +31,23 @@ shipped layouts/mods in the Herdr home.
 
 ## Layout look
 
-The layout root owns `font_weight`, `font_weight_bold`, `terminal_line_height`,
+Both layout roots own `font_weight`, `font_weight_bold`, `terminal_line_height`,
 `terminal_padding` and `ui_font` (README "Type" says why). They beat the person's `settings.json`,
-so change them deliberately and keep the README table in step. Leave `font` unset.
+so change them deliberately, in both layouts, and keep the README table in step. Leave `font`
+unset.
+
+## The claude-chrome mod
+
+`mods/claude-chrome/` is a clone of Herdr's `workspace-chrome` (0.1.18, see `cloned_from` in its
+`mod.json`) plus the `new_chat` row and, in the brand row, the window buttons from the shipped
+`tabs` mod (shown while `tabs` is hidden; icons from `mods/tabs/` and `mods/pane/`). Only the
+files it uses are kept. Herdr never updates a clone: compare it with the shipped
+`workspace-chrome` and `tabs` after a Herdr upgrade. Run
+`herdr-app check ~/.config/herdr-app/mods/claude-chrome` after every change. Herdr writes
+`jsconfig.json` and `gpui-kit.d.ts` into the installed folder; don't commit them.
+
+With `"titlebar": "system"` Herdr 0.1.18 on GNOME Wayland still reports `window().buttons: true`
+(no system window buttons), so `claude-desktop` keeps `"titlebar": "none"` and draws them itself.
 
 ## Shared with omp-claude-theme
 
