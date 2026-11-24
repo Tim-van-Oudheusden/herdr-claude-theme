@@ -28,6 +28,12 @@ shipped layouts/mods in the Herdr home.
   both pairs together; delete the old pair (and its `install.sh` lines) in the next release.
 - Keep the palette's sources (README "Where the colors come from") in step with any color change.
 
+## Layout look
+
+The layout root owns `font_weight`, `font_weight_bold`, `terminal_line_height`,
+`terminal_padding` and `ui_font` (README "Type" says why). They beat the person's `settings.json`,
+so change them deliberately and keep the README table in step. Leave `font` unset.
+
 ## Shared with omp-claude-theme
 
 These must stay identical in both repos, dark and light:
