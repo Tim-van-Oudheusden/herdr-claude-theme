@@ -18,11 +18,12 @@ inside Herdr matches its frame.
 | `themes/claude-desktop-dark.json` | Dark palette: `#1f1e1d` frame, `#262624` cards, `#faf9f5` text, `#d97757` clay |
 | `themes/claude-desktop-light.json` | Light palette: `#f5f4ed` frame, `#faf9f5` cards, `#141413` text, `#c6613f` clay |
 | `themes/claude-code-dark.json`, `themes/claude-code-light.json` | The same palettes under their old names, removed in the next release |
-| `layouts/claude-code.json` | Herdr's `main` layout with both themes (follows system light/dark), no sidebar divider line (a faint grey one on hover and while dragging), no lines under the tab bar or over the status bar, 12px cards, a subtler focus border, and unfocused splits faded slightly |
+| `layouts/claude-code.json` | Herdr's `main` layout with both themes (follows system light/dark), no sidebar divider line (a faint grey one on hover and while dragging), no lines under the tab bar or over the status bar, 12px cards with clean rounded corners, a subtler focus border, and unfocused splits faded slightly |
 | `layouts/claude-desktop.json` | One conversation at a time, as in the Claude desktop app: a New chat row on top of the sidebar, the shown tab filling the rest of the window, no tab bar, status bar or card border |
 | `layouts/*.svg` | The layouts' pictures for Settings → Look |
 | `mods/claude-chrome/` | Herdr's `workspace-chrome` sidebar header and footer, plus the New chat row (used by `claude-desktop`) |
 | `mods/claude-tabs/`, `mods/claude-status/` | Herdr's `tabs` and `workspace-status` bars without their separator lines (used by both layouts) |
+| `mods/claude-pane/` | Herdr's `pane` header with its top corners rounded to the card's, so no square corner shows behind the card border (used by both layouts) |
 | `install.sh` | Copies the files above into the Herdr app home |
 
 Agent status colors: **working** is clay, **blocked** is Claude's violet, **done** is its

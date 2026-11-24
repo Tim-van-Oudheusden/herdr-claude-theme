@@ -17,6 +17,7 @@
     20
   ],
   "terminal_line_height": 1.2,
+  "terminal_opacity": 0,
   "font_weight": 400,
   "font_weight_bold": 600,
   "ui_font": "Geist",
@@ -134,7 +135,7 @@
                   },
                   "header": {
                     "content": {
-                      "mod": "pane"
+                      "mod": "claude-pane"
                     },
                     "height": 30,
                     "position": "top",

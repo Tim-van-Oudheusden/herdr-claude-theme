@@ -36,6 +36,11 @@ Both layout roots own `font_weight`, `font_weight_bold`, `terminal_line_height`,
 so change them deliberately, in both layouts, and keep the README table in step. Leave `font`
 unset.
 
+`claude-code` also sets `"terminal_opacity": 0`. Herdr paints a terminal's own background as a
+square inside the card's rounded border; at 0 only the card's rounded `background` shows, so no
+square corner pokes out. Cell backgrounds programs set still draw. `claude-desktop` can't do the
+same: its lone pane has no card, so the terminal background would turn into `canvas`.
+
 ## The cloned mods
 
 `mods/claude-chrome/` is a clone of Herdr's `workspace-chrome` (0.1.18, see `cloned_from` in its
@@ -45,10 +50,12 @@ files it uses are kept. Herdr never updates a clone: compare it with the shipped
 `workspace-chrome` and `tabs` after a Herdr upgrade. Run
 `herdr-app check ~/.config/herdr-app/mods/claude-chrome` after every change.
 
-`mods/claude-tabs/` and `mods/claude-status/` are clones of the shipped `tabs` and
-`workspace-status` (0.1.18) with only the bar's `border_b`/`border_t` separator removed (and
-`claude-tabs` pointing its window icons at its own folder, as `mod.clone` rewrites them). After
-a Herdr upgrade, diff each `main.js` against the shipped one and carry the changes over.
+`mods/claude-tabs/`, `mods/claude-status/` and `mods/claude-pane/` are clones of the shipped
+`tabs`, `workspace-status` and `pane` (0.1.18). The first two only lose the bar's
+`border_b`/`border_t` separator; `claude-pane` rounds the header's outer corners to the frame's
+inner radius (`radius` minus `border.width`). `mod.clone` pointed their own icons at their own
+folders. After a Herdr upgrade, diff each `main.js` against the shipped one and carry the
+changes over.
 
 Run `herdr-app check` on each clone after every change. Herdr writes `jsconfig.json` and
 `gpui-kit.d.ts` into installed mod folders; don't commit them.

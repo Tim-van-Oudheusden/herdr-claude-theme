@@ -13,11 +13,12 @@ home="${HERDR_APP_HOME:-$HOME/.config/herdr-app}"
 cd "$src"
 
 # The mods go first so the layouts that use them never load without them.
-mods=(mods/claude-chrome mods/claude-tabs mods/claude-status)
+mods=(mods/claude-chrome mods/claude-tabs mods/claude-status mods/claude-pane)
 files=(
   mods/claude-chrome/*
   mods/claude-tabs/*
   mods/claude-status/*
+  mods/claude-pane/*
   themes/claude-desktop-dark.json
   themes/claude-desktop-light.json
   # Old theme names, kept one more release for settings.json files that name them.

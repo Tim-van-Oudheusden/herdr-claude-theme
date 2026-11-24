@@ -148,7 +148,7 @@
                   },
                   "header": {
                     "content": {
-                      "mod": "pane"
+                      "mod": "claude-pane"
                     },
                     "height": 30,
                     "position": "top",
