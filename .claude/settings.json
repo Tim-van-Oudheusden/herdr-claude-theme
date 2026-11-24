@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./install.sh)",
+      "Bash(./install.sh:*)",
+      "Bash(herdr-app status)",
+      "Bash(herdr-app shot:*)",
+      "Bash(herdr-app check:*)",
+      "Bash(herdr-app commands)",
+      "Bash(herdr-app do layout.switch:*)"
+    ]
+  }
+}
