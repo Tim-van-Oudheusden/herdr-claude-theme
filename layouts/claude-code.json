@@ -8,8 +8,8 @@
   ],
   "preview": "layouts/claude-code.svg",
   "theme": {
-    "light": "claude-code-light",
-    "dark": "claude-code-dark"
+    "light": "claude-desktop-light",
+    "dark": "claude-desktop-dark"
   },
   "background": "canvas",
   "terminal_padding": [

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Install (or remove) the Claude Code look into the Herdr app's home.
+# Install (or remove) the Claude desktop look into the Herdr app's home.
 #
 #   ./install.sh              copy themes and the layout
 #   ./install.sh --switch     copy, then switch the open window to the layout
@@ -12,6 +12,9 @@ src="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 home="${HERDR_APP_HOME:-$HOME/.config/herdr-app}"
 
 files=(
+  themes/claude-desktop-dark.json
+  themes/claude-desktop-light.json
+  # Old theme names, kept one more release for settings.json files that name them.
   themes/claude-code-dark.json
   themes/claude-code-light.json
   layouts/claude-code.json
